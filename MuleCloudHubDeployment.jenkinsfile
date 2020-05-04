@@ -1,0 +1,7 @@
+echo 'Pipeline Start'
+node {
+  git url: 'https://github.com/krishsaha2020/mule-projects.git'
+  def mvnHome = tool 'M3'
+  sh "${mvnHome}/bin/mvn -f ./helloworld/pom.xml clean package deploy -DmuleDeploy"
+}
+echo 'Pipeline End'
